@@ -29,17 +29,18 @@ function App() {
               <button onClick={() => setSearch([])}>Clear</button>
             </div>
           ) : null}
-          {!search
-            ? data.filter(value => value == search).map((company) => (
-                <div>
-                  <Tablet company={company} key={company.id} />
+          {search
+            ? data.filter(value => search.every(item => value.languages.concat(value.role, value.level, value.tools).includes(item))).map((company) => (
+                <div key={company.id}>
+                  <Tablet company={company}  />
                 </div>
               ))
             : data.map((company) => (
-                <div>
-                  <Tablet company={company} key={company.id} />
+                <div key={company.id}>
+                  <Tablet company={company}  />
                 </div>
               ))}
+              {/* {filtered } */}
         </div>
       </div>
     </tabletContext.Provider>

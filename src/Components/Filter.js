@@ -14,7 +14,7 @@ return (
 
         <div className='content'>
           {search.map((searched, index) => (
-          <div className='filter-name' key={index}>
+          <div className='filter-name' key={searched}>
           <div>{searched}</div>
           <button onClick={()=>handleDelete(searched)}>X</button>
         </div>

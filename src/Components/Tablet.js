@@ -16,13 +16,11 @@ function Tablet({company}) {
              setSearch([...search, lang]);
   
         }
-        search.map(value => {
-               return jobs.filter(data => data.languages === value)
-            })
 }
+
   return (
     <>
-    <div className='card' key={jobs.id}>
+    <div className='card'>
           <div className='container'>
               <div className='container1'>
                   <div>
@@ -60,13 +58,13 @@ function Tablet({company}) {
               <div className='container2'>
                   <hr />
                   <div className="card-footer">
-                      <div className='filtered-description' key={jobs.role} onClick={() => handleLanguages(jobs.role)}>{jobs.role}</div>
-                      <div className='filtered-description' key={jobs.level} onClick={() => handleLanguages(jobs.level)}> {jobs.level}</div>
+                      <div className='filtered-description' onClick={() => handleLanguages(jobs.role)}>{jobs.role}</div>
+                      <div className='filtered-description'  onClick={() => handleLanguages(jobs.level)}> {jobs.level}</div>
                       {language.map((languages, index) => 
                       (<div className='filtered-description' key={index} onClick={() => handleLanguages(languages)}>{languages}</div>)
                       )}
-                      {tools.map(tool => 
-                      (<p className='filtered-description'onClick={() =>handleLanguages(tool)}>{tool}</p>)
+                      {tools.map((tool,index) => 
+                      (<p key={index} className='filtered-description'onClick={() =>{handleLanguages(tool)}}>{tool}</p>)
                       )}
                   </div>
               </div>
